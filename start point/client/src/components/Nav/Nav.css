@@ -1,0 +1,39 @@
+.navbar {
+  background-color: #007399;
+  color: #ffbb99;
+}
+
+.navbar-toggler-icon {
+  color: white;
+} 
+
+a {
+  color: #ffbb99;
+  font-family: 'Josefin Sans';
+  /* font-family: 'Righteous';  */
+}
+
+a:hover {
+  color: #999999;
+}
+
+.float-right  {
+  font-family: 'Josefin Sans'
+  /* font-family: 'Righteous';  */
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+}
+
+.app-name {
+  color: #EEECEA;
+  font-size: 32px;
+  font-family: "lobster two";
+  margin-right: 20px;
+}
+
+.logout {
+  margin-right: 20px;
+}

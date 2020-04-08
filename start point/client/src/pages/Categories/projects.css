@@ -1,0 +1,69 @@
+body {
+    background-color: #EEECEA;
+}
+
+h1 {
+    font-size: 32px;
+    font-family: 'Josefin Sans'; 
+}
+
+p   {
+    font-family: 'Josefin Sans'
+}
+
+.page-header {
+    margin-top: 20px;
+}
+
+.othIngrTB { /* might want to change this  so it doesn't look obvious it came from recipe applicaiton*/
+    margin-left: 40px;
+    width: 253px;
+}
+
+#swALL {
+    margin-left: 12px;
+}
+ 
+#swCHK {
+    margin-left: 8px;
+}
+
+.btn-color1 {
+    background-color: #008dbb;
+    color: white;
+}
+
+.btn-color1:hover {
+    background-color: #007399;
+    color: white;
+}
+
+.btn-color2 {
+    background-color: #ff884d;
+    color: white;
+}
+
+.btn-color2:hover {
+    background-color: #ff661a;
+    color: white;
+}
+
+.clear-float {
+    clear: right;
+}
+
+.little-note {
+    float: right;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 0px;
+    color: red;
+    margin-right: 15px;
+}
+
+.text-blue {
+    color: #004466;
+    font-family: 'Josefin Sans';
+    text-align: center;
+}
+
