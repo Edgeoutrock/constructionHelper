@@ -1,56 +1,54 @@
-import React, { Fragment } from "react";
-// import { Link } from 'react-router-dom';
-// import { Col } from '../Grid';
-import image from '../../assets/computerChefLogo.png';
-import './Nav.css';
+import React from "react";
 
-const Nav = (props) => {
-  let greeting;
-
-  if (props.user === null) {
-		greeting = <p>Hello guest</p>
-	} else if (props.user.firstName) {
-		greeting = (
-			<Fragment>
-				Welcome, <strong>{props.user.firstName}</strong>
-			</Fragment>
-		)
-	} else if (props.user.username) {
-		greeting = (
-			<Fragment>
-				Welcome, <strong>{props.user.username} </strong>
-			</Fragment>
-		)
-  }
-  
+function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg">
-      <a className="navbar-brand" href="/"><img src={image} height="80px" width="80px" alt=""/></a>
-      <div className="app-name">YumBot</div>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon">   
-        <i className="fa fa-navicon"></i>
-      </span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/favoriterecipes">Favorite Recipes</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/personalrecipe">Personal Recipes</a>
-          </li>
-        </ul>
-        <div className="float-right">
-          {greeting}&emsp;&emsp;  
-          <a href="/" className="logout" onClick={props.logout}>Logout</a>
-        </div>
+
+<div>
+
+<header id="header">
+<div className="intro">
+   <div id="osahan-slider" className="carousel slide" data-ride="carousel">
+      <div className="carousel-inner">
+         <div className="item active">
+            <div className="imgoverlay"></div>
+            <img src="img/sider/slider2.jpg" alt="Third slide"></img>
+            <div className="carousel-caption text-center">
+               <h1>Construction Helper
+               </h1>
+               <p>The application lets peple post their project so constructor who are interested can contact them.</p>
+            </div>
+         </div>
+
       </div>
-    </nav>    
-  )
-};
+   </div>
+</div>
+</header>
+
+
+ <nav id="menu" className="navbar navbar-default navbar-fixed-top menu-top">
+    <div className="container">
+       <div className="navbar-header">
+          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span className="sr-only">Toggle navigation</span> <span className="icon-bar"></span> <span className="icon-bar"></span> <span className="icon-bar"></span> </button>
+          <a className="navbar-brand page-scroll" href="#page-top">Construction Helper</a>
+       </div>
+       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul className="nav navbar-nav navbar-right">
+             <li><a href="#top" className="page-scroll">Home</a></li>
+             <li><a href="#about" className="page-scroll">About Us</a></li>
+             <li><a href="#portfolio" className="page-scroll">Projects</a></li>
+             <li><a href="#plans" className="page-scroll">Login</a></li>
+             <li><a href="#contact" className="page-scroll">Sign Up</a></li>
+          </ul>
+       </div>
+    </div>
+ </nav>
+ <footer>
+ <div className="footer-bottom">
+ <p> © Copyright 2020 </p>
+</div>
+</footer>
+ </div>
+  );
+}
 
 export default Nav;
