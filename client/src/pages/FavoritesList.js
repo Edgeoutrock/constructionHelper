@@ -27,6 +27,7 @@ const FavoritesList = () => {
 
   return (
     <div className="container mb-5 mt-5">
+
 <Picks />
       
       <h1 className="text-center">Here's All of Your Favorite Posts</h1>
