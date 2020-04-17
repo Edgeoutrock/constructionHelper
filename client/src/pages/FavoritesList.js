@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { ListItem, List } from "../components/List";
+import Picks from "../components/Picks/picks.js";
 import DeleteBtn from "../components/DeleteBtn";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
@@ -26,6 +27,9 @@ const FavoritesList = () => {
 
   return (
     <div className="container mb-5 mt-5">
+
+<Picks />
+      
       <h1 className="text-center">Here's All of Your Favorite Posts</h1>
       {state.favorites.length ? (
         <List>
