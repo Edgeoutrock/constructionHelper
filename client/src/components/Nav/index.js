@@ -1,9 +1,15 @@
 import React from "react";
 import { useStoreContext } from "../../utils/GlobalState";
 import "./style.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, withRouter } from "react-router-dom";
+import auth0Client from '../../Auth';
 
-function Nav() {
+function Nav(props) {
+
+   const signOut = () => {
+      auth0Client.signOut();
+      props.history.replace('/');
+    };
   const [store] = useStoreContext();
   const location = useLocation();
 
@@ -51,8 +57,20 @@ function Nav() {
         
         <li class="item">
         <Link to="/contact" className={location.pathname === "/contact" ? "activate" : "notactivate"}>Contact </Link></li>
-        <li class="item button"><a href="#">Log In</a></li>
-        <li class="item button secondary"><a href="#">Sign Up</a></li>
+        {
+        !auth0Client.isAuthenticated() &&
+        <button className="btn btn-dark item button" onClick={auth0Client.signIn}>Sign In or Sign Up</button>
+      }
+        
+        {/* <li class="item button"><a href="#">Log In</a></li>
+        <li class="item button secondary"><a href="#">Sign Up</a></li> */}
+        {
+        auth0Client.isAuthenticated() &&
+        <li class="item button secondary">
+          <label className="mr-2 text-white">{auth0Client.getProfile().name}</label>
+          <button className="btn btn-dark" onClick={() => {signOut()}}>Sign Out</button>
+        </li>
+      }
         <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
         </ul> 
         
@@ -61,6 +79,6 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default withRouter(Nav);
 
 

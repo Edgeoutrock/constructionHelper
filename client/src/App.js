@@ -8,6 +8,8 @@ import { StoreProvider } from "./utils/GlobalState";
 import FavoritesList from "./pages/FavoritesList";
 import DriftApp from "./components/DriftApp/driftapp.js";
 
+import Callback from './Callback';
+
 function App() {
   return (
     <Router>
@@ -21,6 +23,8 @@ function App() {
             <Route exact path="/contact" component={Home} />
             <Route exact path="/projects" component={FavoritesList} />
             <Route exact path="/posts/:id" component={Detail} />
+
+            <Route exact path='/callback' component={Callback}/>
             <Route component={NoMatch} />
           </Switch>
         </StoreProvider>
