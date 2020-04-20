@@ -1,9 +1,9 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
-  SET_CURRENT_POST,
-  REMOVE_POST,
-  UPDATE_POSTS,
-  ADD_POST,
+  SET_CURRENT_PROJECT,
+  REMOVE_PROJECT,
+  UPDATE_PROJECTS,
+  ADD_PROJECT,
   ADD_FAVORITE,
   UPDATE_FAVORITES,
   REMOVE_FAVORITE,
@@ -15,39 +15,39 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
-  case SET_CURRENT_POST:
+  case SET_CURRENT_PROJECT:
     return {
       ...state,
-      currentPost: action.post,
+      currentProject: action.project,
       loading: false
     };
 
-  case UPDATE_POSTS:
+  case UPDATE_PROJECTS:
     return {
       ...state,
-      posts: [...action.posts],
+      projects: [...action.projects],
       loading: false
     };
 
-  case ADD_POST:
+  case ADD_PROJECT:
     return {
       ...state,
-      posts: [action.post, ...state.posts],
+      projects: [action.project, ...state.projects],
       loading: false
     };
 
-  case REMOVE_POST:
+  case REMOVE_PROJECT:
     return {
       ...state,
-      posts: state.posts.filter((post) => {
-        return post._id !== action._id; 
+      projects: state.projects.filter((project) => {
+        return project._id !== action._id; 
       })
     };
 
   case ADD_FAVORITE:
     return {
       ...state,
-      favorites: [action.post, ...state.favorites],
+      favorites: [action.project, ...state.favorites],
       loading: false
     };
 
@@ -61,8 +61,8 @@ const reducer = (state, action) => {
   case REMOVE_FAVORITE:
     return {
       ...state,
-      favorites: state.favorites.filter((post) => {
-        return post._id !== action._id; 
+      favorites: state.favorites.filter((project) => {
+        return project._id !== action._id; 
       })
     };
 
@@ -79,11 +79,11 @@ const reducer = (state, action) => {
 
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
-    posts: [],
-    currentPost: {
+    projects: [],
+    currentProject: {
       _id: 0,
       title: "",
-      body: "",
+      description: "",
       author: ""
     },
     favorites: [],

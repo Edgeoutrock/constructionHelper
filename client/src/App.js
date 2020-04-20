@@ -22,7 +22,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/contact" component={Home} />
             <Route exact path="/projects" component={FavoritesList} />
-            <Route exact path="/posts/:id" component={Detail} />
+            <Route exact path="/projects/:id" component={Detail} />
 
             <Route exact path='/callback' component={Callback}/>
             <Route component={NoMatch} />

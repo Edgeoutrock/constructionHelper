@@ -35,7 +35,7 @@ const checkJwt = jwt({
 app.post('/', checkJwt, (req, res) => {
  // const {title, description} = req.body;
   
-  res.status(200).sendFile(path.join(__dirname, "../client/build/index.html");
+  res.status(200).sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 // insert a new answer to a question
@@ -54,7 +54,7 @@ app.post('/answer/:id', checkJwt, (req, res) => {
   res.status(200).send();
 });
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/constructionProject");
 
 // Start the API server
 app.listen(PORT, function() {

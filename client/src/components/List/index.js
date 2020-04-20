@@ -30,7 +30,7 @@ export function ListItem({ author, title, id, children }) {
         <div>
           
            
-            <Link to={"/posts/" + id}>
+            <Link to={"/projects/" + id}>
             {children}
               </Link>
           

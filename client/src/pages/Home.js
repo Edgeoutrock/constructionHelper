@@ -1,9 +1,11 @@
 import React from "react";
 import { Col, Row, Container } from "../components/Grid";
-import CreatePostForm from "../components/CreatePostForm";
-import PostsList from "../components/PostsList";
+import CreateProjectForm from "../components/CreateProjectForm/index.js";
+import ProjectsList from "../components/ProjectsList/index.js";
 
 const Home = () => {
+ 
+ 
   return (<>
  
  {/* <!-- Get Touch Section --> */}
@@ -22,10 +24,10 @@ const Home = () => {
     <Container fluid>
       <Row>
         <Col size="md-6">
-          <CreatePostForm />
+          <CreateProjectForm />
         </Col>
         <Col size="md-6 sm-12">
-          <PostsList />
+          <ProjectsList />
         </Col>
       </Row>
     </Container>
@@ -40,6 +42,7 @@ const Home = () => {
       </footer>
     </>
   );
-};
+}
+
 
 export default Home;

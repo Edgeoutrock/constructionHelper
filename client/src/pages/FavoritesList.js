@@ -30,18 +30,18 @@ const FavoritesList = () => {
 
 <Picks />
       
-      <h1 className="text-center">Here's All of Your Favorite Posts</h1>
+      <h1 className="text-center">Here's All of Your Favorite Projects</h1>
       {state.favorites.length ? (
         <List>
-          <h3 className="mb-5 mt-5">Click on a post to view in detail</h3>
-          {state.favorites.map(post => (
-            <ListItem key={post._id}>
-              <Link to={"/posts/" + post._id}>
+          <h3 className="mb-5 mt-5">Click on a project to view in detail</h3>
+          {state.favorites.map(project => (
+            <ListItem key={project._id}>
+              <Link to={"/projects/" + project._id}>
                 <strong>
-                  {post.title} by {post.author}
+                  {project.title} by {project.author}
                 </strong>
               </Link>
-              <DeleteBtn onClick={() => removeFromFavorites(post._id)} />
+              <DeleteBtn onClick={() => removeFromFavorites(project._id)} />
             </ListItem>
           ))}
         </List>
