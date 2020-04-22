@@ -52,19 +52,23 @@ function ProjectsList() {
       {state.projects.length ? (
         <List>
           {state.projects.map(project => (
+            
+            <div key={project.title} className="card mx-auto col-4">
             <div style ={divStyle} className = {style.link}>
             <ListItem key={project._id} title={project.title} imageURL = {project.imageURL} id ={project._id}>
-              <div className = {style.detailsContainer}>
-              {project.title}  
-              </div>
-              <div className={style.description}>
-              {project.imageURL}
-              </div>
-              
-              <DeleteBtn onClick={() => removeProject(project._id)} />
-              
+            <img className="card-img-top" src={project.imageURL} alt={project.title} />
+            <div className="card-body">
+              <h4 className="card-title">{project.title}</h4>
+              <p className="card-text">
+                {project.title} has an order by {state[project.title.split(" ").join("") + "change"]} !
+              </p>
+            {/* <input type = "text" ref={inputRef}/> */}
+            </div>
             </ListItem>
             </div>
+            
+            <DeleteBtn onClick={() => removeProject(project._id)} />
+          </div>
           ))}
         </List>
       ) : (
