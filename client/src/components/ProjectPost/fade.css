@@ -6,11 +6,24 @@
     border-radius: 25px;
     margin-left: 25%;
     margin-top: 25%;
-    left: 0px;
+    left: 10px;
     top: -200px;
     
 }
 
+.zindex3{
+    z-index: 1000; 
+   position: relative;
+   background-color: lightgray;
+   padding: 20px;
+   border-radius: 25px;
+   margin-left: 10%;
+   margin-top: 10%;
+   left: -140px;
+   top: -600px;
+   width: 330px;
+   
+}
 .zindex2{
        z-index: 1000;
     position: relative;
@@ -20,5 +33,5 @@
     margin-left: 25%;
     margin-top: 25%;
     left: 10px;
-    top:-350px;
+    top:-500px;
 }

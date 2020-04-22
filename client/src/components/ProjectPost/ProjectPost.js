@@ -1,6 +1,6 @@
-import React, { useRef, useState} from "react";
-
-import BackgroundSlideshow from 'react-background-slideshow';
+import React, { useRef, useState } from "react";
+import { useStorageState } from 'react-storage-hooks';
+// import OpenWeatherMap from 'react-open-weather-map';
 import image1 from '../assets/pic1.jpg';
 import image2 from '../assets/pic2.jpg';
 import image3 from '../assets/pic3.jpg';
@@ -12,6 +12,19 @@ import image8 from '../assets/pic8.jpg';
 import "./fade.css";
 
 import { Link } from "react-router-dom";
+import BackgroundSlideshow from 'react-background-slideshow';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useOpenWeatherMapAPI } from "@jakubzet/use-openweathermap-api";
+
+
+// var ReactWeather = require('react-open-weather').default;
+// //Optional include of the default css styles
+// require('react-open-weather/lib/css/ReactWeather.css');
+
+
+
+
 
 
 
@@ -23,10 +36,40 @@ function ProjectPost() {
   const serviceRef = useRef();
   
 
-  const [projects, setProjects] = useState([]);
+  const [title, setTitle] = useState('')
 
+  
+   // info: sample is the response object from the OpenWeatherMap's API
+  //const [projects, setProjects] = useState([]);
+  const [projects, setProjects, writeError] = useStorageState(
+    localStorage,
+    'display-projects',
+    []
+  );
 
+  const show = () => {
 
+    toast("weather may take time to display");
+  }
+  const [state, fetchWeather ] = useOpenWeatherMapAPI({
+    key: "a824229569c4a405459ff5720da5b0df",
+    queryConfig: {
+      cityName: title,
+      countryCode: "us"
+    },
+    queryType: "name",
+    units: "metric"
+  });
+
+  
+
+  const removeLocalStorage = () => {
+    localStorage.removeItem('display-projects');
+
+    toast("removed projects from display!");
+  }
+
+  
   const addProject = (e) => {
     e.preventDefault();
     setProjects([
@@ -95,19 +138,75 @@ function ProjectPost() {
           ref={serviceRef}
           placeholder="Services desired"
         />
+        <input
+          className="form-control"
+          onChange={event => setTitle(event.target.value) }
+          
+          type = "text"
+          placeholder="city in United States for weather"
+        />
+
+
+
         
-        <button className="btn btn-success mt-3 mb-5" type="submit">
+        <button className="btn btn-success mt-3 mb-5" type="submit" onClick= {show}>
           Add to Projects
         </button>
+        
       </form>
+      
     </div>
     
+    <div className = "zindex3">
+
+    <main>
+      <h1>Weather</h1>
+ 
+    
+ 
+      <section>
+        <h4>Data:</h4>
+        {state.data && state.data.name && state.data.main ? (
+          <>
+            <p>Weather in {state.data.name}:</p>
+            <ul>
+              <li>Currently: {state.data.main.temp  * 9/5 + 32} degrees</li>
+              <li>Max: {state.data.main.temp_max * 9/5 + 32} degrees</li>
+              <li>Min: {state.data.main.temp_min * 9/5 + 32} degrees</li>
+            </ul>
+          </>
+        ) : (
+          <p>Nope</p>
+        )}
+      </section>
+ 
+      
+    </main>
+
+    </div>
     
    
     
     <div className = "zindex2">
       <h4>My Projects List:</h4>
-      <span >  <Link style={{ color: '#000000' }} to="home">Back to home</Link> </span>
+      <span >  <Link style={{ color: '#000000' }} to="/">Back to home</Link> </span>
+      <button type="button" class="btn btn-danger" onClick = {removeLocalStorage}>Clear All Projects</button>
+      <button className="btn btn-success mt-3 mb-5" onClick={fetchWeather} >
+          Fetch Weather
+        </button>
+      <ToastContainer />
+      {/* <ReactWeather forecast="5days" apikey="a824229569c4a405459ff5720da5b0df" type="geo" lat="48.1351"
+  lon="11.5820"/> */}
+
+  
+      {/* <OpenWeatherMap {...props} /> */}
+  
+      
+
+
+      {writeError && (
+        <pre>Cannot write to localStorage: {writeError.message}</pre>
+      )}
       <ul className = "list-group">
       {projects.map((item, index) => (
           <li className="list-group-item" key={item.id}>

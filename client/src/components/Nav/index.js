@@ -47,8 +47,8 @@ function Nav(props) {
     <nav>
       {/* <ul class="Mass"><li> Constuction Helper</li></ul> */}
 <ul class="menu">
-         <li class="logo">
-         <img src = "../img/favicon.png"/>
+         <li class="logo" style = {{color: 'white'}}>
+        You Nailed It! Construction
         </li>
         <li class="item"> <Link to="/" className={location.pathname === "/" ? "activate" : "notactivate"}>Home </Link></li>
         <li class="item">

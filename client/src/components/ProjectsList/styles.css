@@ -1,5 +1,5 @@
 .link { /* stylelint-disable */
-    background-color: #fff;
+    background-color: black;
     display: flex;
     margin-bottom: 10px;
     box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
@@ -28,7 +28,7 @@
   }
   
   .description {
-    color: #757575;
+    color: black;
   }
   
   .votingIcon {
@@ -37,6 +37,6 @@
   
   .linkAnchor {
     text-decoration: none;
-    color: inherit;
+    color: black;
     
   }

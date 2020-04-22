@@ -7,6 +7,14 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_PROJECT, UPDATE_PROJECTS, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
 import style from "./styles.css";
+
+
+const divStyle = {
+  margin: '10px',
+  border: '5px solid black',
+  backgroundColor: 'blue'
+
+};
 function ProjectsList() {
   const [state, dispatch] = useStoreContext();
 
@@ -44,7 +52,7 @@ function ProjectsList() {
       {state.projects.length ? (
         <List>
           {state.projects.map(project => (
-            <div className = {style.link}>
+            <div style ={divStyle} className = {style.link}>
             <ListItem key={project._id} title={project.title} author = {project.author} id ={project._id}>
               <div className = {style.detailsContainer}>
               {project.title}  

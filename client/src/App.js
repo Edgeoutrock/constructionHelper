@@ -8,6 +8,7 @@ import { StoreProvider } from "./utils/GlobalState";
 import FavoritesList from "./pages/FavoritesList";
 import DriftApp from "./components/DriftApp/driftapp.js";
 import ProjectPost from "./components/ProjectPost/ProjectPost.js";
+import Pricing from "./components/pricing/pricing.js";
 
 //import showProjects from "./components/ProjectPost/showProjects.js";
 import Callback from './Callback';
@@ -23,7 +24,7 @@ function App() {
           <Switch>
 
             <Route exact path="/" component={Home} />
-            <Route exact path="/contact" component={Home} />
+            <Route exact path="/contact" component = {Pricing} />
             <Route exact path="/projects" component={FavoritesList} />
             <Route exact path="/projects/:id" component={Detail} />
              <Route  path="/setwork" component={ProjectPost}/> 
