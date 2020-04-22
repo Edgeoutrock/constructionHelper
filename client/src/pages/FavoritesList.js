@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
 import { REMOVE_FAVORITE, LOADING, UPDATE_FAVORITES } from "../utils/actions";
 
+
+
+
+
 const FavoritesList = () => {
   const [state, dispatch] = useStoreContext();
 

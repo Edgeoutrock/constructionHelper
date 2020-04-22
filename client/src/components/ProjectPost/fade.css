@@ -1,0 +1,24 @@
+.zindex1{
+     z-index: 1000; 
+    position: absolute;
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 25px;
+    margin-left: 25%;
+    margin-top: 25%;
+    left: 0px;
+    top: -200px;
+    
+}
+
+.zindex2{
+       z-index: 1000;
+    position: relative;
+    background-color: white;
+    padding: 10px;
+    border-radius: 40px;
+    margin-left: 25%;
+    margin-top: 25%;
+    left: 10px;
+    top:-350px;
+}

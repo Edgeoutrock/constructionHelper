@@ -10,6 +10,7 @@ import pic2 from './images/2.jpg';
 import pic3 from './images/3.jpg';
 import pic4 from './images/4.jpg';
 import pic5 from './images/5.jpg';
+import pic6 from './images/6.jpg';
 import css from './style.css';
 
 export default class DriftApp extends React.Component {
@@ -19,7 +20,7 @@ export default class DriftApp extends React.Component {
     this.handleClickNext = this.handleClickNext.bind(this)
     this.state = {
       showIndex: 0,
-      numSlides: 5
+      numSlides: 6
     }
   }
   handleClickPrevious() {
@@ -50,38 +51,39 @@ export default class DriftApp extends React.Component {
           nav={this.renderNav()}
           width={640}
         >
-          <Slide image={pic1} title="Imperial Mockery">
-            In a show of defiance, rebels have again made mockery of the majesty
-            that is service to the Empire. These objects were immediately
-            removed from the reflecting pool in Coruscant's Central Square when
-            found this morning.
+          <Slide image={pic1} title="New Home Construction">
+            We know what makes a home dazzle and we specialize in desiging homes. 
+            In the process, we take inspiration from having built homes from the ground up.
           </Slide>
-          <Slide image={pic2} title="Trooper Initiation">
-            In a tradition that predates the Empire, Troopers seen here are made
-            to suffer the agony of the limbo line. Such initiation techniques
-            are currently under Imperial review.
+          <Slide image={pic2} title="Home Additions">
+          We know home decor can turn your home into a space that reflects your style and makes you happy. 
+          Let us help you get inspired by our on-trend and affordable home Additions.
           </Slide>
           <Slide
             image={pic3}
-            title="Master and Apprentice"
+            title="Bathroom Remodels"
           >
-            Internships work! When determining a career path, it is wise to
-            first find someone currently in that line of work. They will likely
-            be able to show you what it's really like before you commit your
-            future.
+            Your bathroom is just for you. 
+            Get inspired with our bathroom ideas and let us help you turn the space into an oasis from daily stresses. 
+            We offer a wide variety of bathroom solutions.
           </Slide>
-          <Slide image={pic4} title="Battle of Coruscant">
-            Modelers ran out of the pre-Empire model Star Destroyers in this
-            reenactment of the Battle of Coruscant. Various plans for future
-            machines of war were used as filler.
+          <Slide image={pic4} title="Kitchen Remodels">
+          Remodeling the kitchen is one of the most rewarding and complex home improvement projects you can undertake. 
+          A new kitchen leaves you with endless choices and decisions to make.
           </Slide>
           <Slide
             image={pic5}
-            title="The Wiles of the Forest"
+            title="Windows and Doors"
           >
-            After a number of nervous breakdowns, Empire personnel officers are
-            investigating the possibility rotating troopers stationed on the
-            forest moons of Endor after several rotations.
+            New windows and doors offer you a chance to update your look and increase home security. 
+            We offer all the doors you need. You can even special order or even custom design your own for a perfect fit. 
+           
+          </Slide>
+          <Slide
+            image={pic6}
+            title="Decks and Porches"
+          >
+            Fix up your existing deck or start from scratch – either way, you’ll be enjoying your outdoor deck destination. You’ll find decking materials you need to build a new deck or spruce up deck you have.
           </Slide>
         </Carousel>
       </Frame>

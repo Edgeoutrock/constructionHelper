@@ -58,6 +58,12 @@ function Nav(props) {
         <li class="item">
         <Link to="/contact" className={location.pathname === "/contact" ? "activate" : "notactivate"}>Contact </Link></li>
         {
+        auth0Client.isAuthenticated() &&
+        <li class="item">
+        <Link to="/setwork" className={location.pathname === "/setwork" ? "activate" : "notactivate"}>Display </Link></li>
+         }
+        
+        {
         !auth0Client.isAuthenticated() &&
         <button className="btn btn-dark item button" onClick={auth0Client.signIn}>Sign In or Sign Up</button>
       }
