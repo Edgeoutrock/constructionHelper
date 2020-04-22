@@ -7,25 +7,40 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/constructionPro
 
 const projectSeed = [
   {
-    title: "Hello World",
-    author: "admin",
-    description:
-      "Welcome to your first Project! To create Projects create a title and body. Don't forget to include your screen name!",
-    date: new Date(Date.now())
+    id: 1,
+    title: "New Home Construction",
+    imageURL: "https://si.wsj.net/public/resources/images/B3-DM067_RIGHTS_IM_20190319162958.jpg",
+    description: "build a home from scratch",
   },
   {
-    title: "The Second Project",
-    author: "admin",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    date: new Date(Date.now())
+    id: 2,
+    title: "Home Additions",
+    imageURL: "https://specials-images.forbesimg.com/imageserve/1026205392/960x0.jpg?fit=scale",
+    description: "Remove or add stuff to an existing home",
   },
   {
-    title: "Another One",
-    author: "admin",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    date: new Date(Date.now())
+    id: 3,
+    title: "Bathroom Remodels",
+    imageURL: "https://www.thespruce.com/thmb/YuqBcOldMD_Z6D35Em-3ae-A0x8=/640x428/filters:no_upscale()/beach-style-bathroom-white-marble-589daa1c3df78c475853c280.jpg",
+    description: "installation for faucets, sinks, showerheads, tubs, and other related items",
+  },
+  {
+    id: 4,
+    title: "Kitchen Remodels",
+    imageURL: "https://st.hzcdn.com/fimgs/90f15e760c36401e_1566-w312-h312-b0-p0--transitional-kitchen.jpg",
+    description: "replacements of countertops with granite and faucet installation",
+  },
+  {
+    id: 5,
+    title: "Windows and Doors",
+    imageURL: "https://www.scorpionhome.com/images/pages/replacement-windows-doors-belleville-il.jpg",
+    description: "placement of items",
+  },
+  {
+    id: 6,
+    title: "Decks and Porches",
+    imageURL: "https://nexgenremodeling.com/wp-content/uploads/2019/07/porch-and-deck-construction-services-by-local-professionals.jpg",
+    description: "the exterior looks better with replacements",
   }
 ];
 
