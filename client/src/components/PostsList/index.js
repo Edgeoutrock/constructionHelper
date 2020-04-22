@@ -45,12 +45,12 @@ function PostsList() {
         <List>
           {state.posts.map(post => (
             <div className = {style.link}>
-            <ListItem key={post._id} title={post.title} author = {post.author} id ={post._id}>
+            <ListItem key={post._id} title={post.title} imageURL = {post.imageURL} id ={post._id}>
               <div className = {style.detailsContainer}>
               {post.title}  
               </div>
               <div className={style.description}>
-              {post.author}
+              {post.imageURL}
               </div>
               
               <DeleteBtn onClick={() => removePost(post._id)} />

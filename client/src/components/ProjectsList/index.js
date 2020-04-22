@@ -53,12 +53,12 @@ function ProjectsList() {
         <List>
           {state.projects.map(project => (
             <div style ={divStyle} className = {style.link}>
-            <ListItem key={project._id} title={project.title} author = {project.author} id ={project._id}>
+            <ListItem key={project._id} title={project.title} imageURL = {project.imageURL} id ={project._id}>
               <div className = {style.detailsContainer}>
               {project.title}  
               </div>
               <div className={style.description}>
-              {project.author}
+              {project.imageURL}
               </div>
               
               <DeleteBtn onClick={() => removeProject(project._id)} />

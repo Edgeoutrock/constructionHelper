@@ -84,7 +84,7 @@ const StoreProvider = ({ value = [], ...props }) => {
       _id: 0,
       title: "",
       description: "",
-      author: ""
+      imageURL: ""
     },
     favorites: [],
     loading: false
