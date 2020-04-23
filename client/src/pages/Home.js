@@ -22,9 +22,14 @@ const Home = () => {
       </div>
 	  {/* <!-- End Get Touch Section --> */}
     <Container fluid>
-
+      <Row>
+        <Col size="md-6">
+          <CreateProjectForm />
+        </Col>
+        <Col size="md-6 sm-12">
           <ProjectsList />
-
+        </Col>
+      </Row>
     </Container>
 
     {/* <!-- Footer Section --> */}

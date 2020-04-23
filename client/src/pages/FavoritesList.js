@@ -37,12 +37,12 @@ const FavoritesList = () => {
       <h1 className="text-center">Here's All of Your Favorite Projects</h1>
       {state.favorites.length ? (
         <List>
-          <p className="mb-5 mt-5">Click on a project link to view in detail</p>
+          <h3 className="mb-5 mt-5">Click on a project to view in detail</h3>
           {state.favorites.map(project => (
             <ListItem key={project._id}>
               <Link to={"/projects/" + project._id}>
                 <strong>
-                  {project.title}
+                  {project.title} by {project.author}
                 </strong>
               </Link>
               <DeleteBtn onClick={() => removeFromFavorites(project._id)} />
