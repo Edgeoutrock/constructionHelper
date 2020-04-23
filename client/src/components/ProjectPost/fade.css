@@ -33,5 +33,20 @@
     margin-left: 25%;
     margin-top: 25%;
     left: 10px;
-    top:-500px;
+    top:-800px;
+    height: 5000px;
+}
+
+.zindex6{
+    z-index: 1000; 
+   position: relative;
+   background-color: lightgray;
+   padding: 20px;
+   border-radius: 25px;
+   margin-left: 10%;
+   margin-top: 10%;
+   left: -140px;
+   top: -300px;
+   width: 330px;
+   
 }

@@ -1,5 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useStorageState } from 'react-storage-hooks';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import Collapsible from 'react-collapsible';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 // import OpenWeatherMap from 'react-open-weather-map';
 import image1 from '../assets/pic1.jpg';
 import image2 from '../assets/pic2.jpg';
@@ -35,10 +41,30 @@ function ProjectPost() {
   const imageURLRef = useRef();
   const serviceRef = useRef();
   
+  const useStyles = makeStyles((theme) => ({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 200,
+    },
+  }));
+  const classes = useStyles();
 
-  const [title, setTitle] = useState('')
+  const [completeList, finishProject] = useState([]);
 
-  
+  const collectFinished = (id, name) => {
+
+    finishProject([...completeList, {id, name}]);
+  }
+
+const [force, setForce] = useState([]);
+  const [title, setTitle] = useState('');
+const [query, setParameter] = useState('');
+const searchQuery = "https://" + `${title}` + ".craigslist.org/search/sss?query="+`${query.split(" ").join("+")}`+"&s=0&sort=rel";
    // info: sample is the response object from the OpenWeatherMap's API
   //const [projects, setProjects] = useState([]);
   const [projects, setProjects, writeError] = useStorageState(
@@ -115,7 +141,7 @@ function ProjectPost() {
 
 
   return (<>
-    <div className = "zindex1">
+  <div className = "zindex1">
       <h1>Create a Project!</h1>
       <form className="form-group mt-5" onSubmit={addProject}>
         <input
@@ -155,6 +181,7 @@ function ProjectPost() {
         
       </form>
       
+      
     </div>
     
     <div className = "zindex3">
@@ -179,7 +206,55 @@ function ProjectPost() {
           <p>Nope</p>
         )}
       </section>
+      
+      
+    </main>
+
+    </div>
+
+
+    <div className = "zindex6">
+
+    <main>
+      <h1>Project Completion</h1>
  
+    
+ 
+      <section>
+        <h4>Finished</h4>
+        
+    
+        {completeList ? (
+          <>
+            {completeList.map((listItem) => (<>
+              
+              <Collapsible trigger= {listItem.name && "Completed: " + listItem.name}>
+              {listItem.name}
+              
+              <p>
+                
+        <input
+          className="form-control"
+          onChange={event => setForce([...force, event.target.value]) }
+          
+          type = "text"
+          placeholder="leave a review"
+        />
+              </p>
+             
+              </Collapsible>
+              
+
+         </>   ))}
+          </>
+        ) : (
+          <p>Nope</p>
+        )}
+    
+        
+      
+      </section>
+      
       
     </main>
 
@@ -194,6 +269,14 @@ function ProjectPost() {
       <button className="btn btn-success mt-3 mb-5" onClick={fetchWeather} >
           Fetch Weather
         </button>
+
+        <input
+          className="form-control"
+          onChange={event => setParameter(event.target.value) }
+          
+          type = "text"
+          placeholder="city field required to search Craigslist for item"
+        />
       <ToastContainer />
       {/* <ReactWeather forecast="5days" apikey="a824229569c4a405459ff5720da5b0df" type="geo" lat="48.1351"
   lon="11.5820"/> */}
@@ -208,9 +291,19 @@ function ProjectPost() {
         <pre>Cannot write to localStorage: {writeError.message}</pre>
       )}
       <ul className = "list-group">
+      
+      
+      
+  
+      
+    
       {projects.map((item, index) => (
-          <li className="list-group-item" key={item.id}>
+         
+          
+
             
+          <li className="list-group-item" key={item.id}>
+            <Collapsible trigger= {item.servicesNeeded ? "Service needed " + item.servicesNeeded : "no services desired"}>
             <div key={item.name} className="card mx-auto col-4">
             <img className="card-img-top" src={item.imageURL} alt={item.name} />
             <div className="card-body">
@@ -218,14 +311,33 @@ function ProjectPost() {
             <ul className="card-text">
               <li>
               <p >
-                {item.description}
+                {item.description} 
+      <p>
+        Source:{' '}
+        <a style={{ color: '#000000' }} href= { searchQuery }  target="_blank">
+          from Craigslist
+        </a> 
+        <form className={classes.container} noValidate>
+      <TextField
+        id="date"
+        label="Complete by Date"
+        type="date"
+        defaultValue="2017-05-24"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+      <button style = {{height: "20px"}}className="btn btn-success mt-3 mb-5" onClick={(e) => {e.preventDefault(); collectFinished(item.id, item.name);}}> </button>
+    </form>
+      </p>
               </p>
               </li>
               <li>
               <span className={item.priority ? "font-weight-bold card-text" : ""}> Service: {item.servicesNeeded ? item.servicesNeeded : "none" }</span> 
               </li>
               </ul>
-         
+              
          {/*
           <li>
           <button
@@ -246,15 +358,22 @@ function ProjectPost() {
               X Remove
             </button>
           </li> */}
+
+
            </div>
            </div>
+           </Collapsible>
           </li>
+          
+          
         ))}
+       
+        
       </ul>
     </div>
 <BackgroundSlideshow images={[ image1, image2, image3, image4, image5, image6, image7, image8 ]} />
-</>
-  );
+
+ </> );
 }
 
 export default ProjectPost;

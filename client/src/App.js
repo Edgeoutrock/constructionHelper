@@ -27,7 +27,7 @@ function App() {
             <Route exact path="/contact" component = {Pricing} />
             <Route exact path="/projects" component={FavoritesList} />
             <Route exact path="/projects/:id" component={Detail} />
-            <Route  path="/setwork" component={ProjectPost}/> 
+             <Route  path="/setwork" component={ProjectPost}/> 
             <Route  path='/callback' component={Callback}/>
             <Route component={NoMatch} />
 

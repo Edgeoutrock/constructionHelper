@@ -11,7 +11,7 @@ export function List({ children }) {
   );
 }
 
-export function ListItem({ imageURL, title, id, children }) {
+export function ListItem({ author, title, id, children }) {
   return (
     <li>
 <div className={styles.link}>
