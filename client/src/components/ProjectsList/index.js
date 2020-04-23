@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { ListItem, List } from "../List";
 import DeleteBtn from "../DeleteBtn";
+import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
 
 import { useStoreContext } from "../../utils/GlobalState";
@@ -59,15 +60,22 @@ function ProjectsList() {
             <img className="card-img-top" src={project.imageURL} alt={project.title} />
             <div className="card-body">
               <h4 className="card-title">{project.title}</h4>
-              <p className="card-text">
-                {project.title} has an order by {state[project.title.split(" ").join("") + "change"]} !
-              </p>
             {/* <input type = "text" ref={inputRef}/> */}
             </div>
             </ListItem>
             </div>
-            
-            <DeleteBtn onClick={() => removeProject(project._id)} />
+            <Row>
+            <Col size="md-6">
+            <button className="btn btn-primary" onClick={() => dispatch("change" + project.title.split(" ").join(""))}>
+            Add Contact Information
+          </button>
+            </Col>
+            <Col size="md-6 sm-12">
+            <DeleteBtn className="btn btn-danger" onClick={() => removeProject(project._id)} />
+            </Col>
+          </Row>
+          
+          
           </div>
           ))}
         </List>
