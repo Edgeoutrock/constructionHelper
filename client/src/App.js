@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
+import AddProject from "./pages/AddProject";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/projects" component={FavoritesList} />
             <Route exact path="/projects/:id" component={Detail} />
             <Route  path="/setwork" component={ProjectPost}/> 
+            <Route  path="/startProject" component={AddProject}/> 
             <Route  path='/callback' component={Callback}/>
             <Route component={NoMatch} />
 
