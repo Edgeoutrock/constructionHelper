@@ -62,6 +62,10 @@ function Nav(props) {
         <li class="item">
         <Link to="/setwork" className={location.pathname === "/setwork" ? "activate" : "notactivate"}>Display </Link></li>
          }
+         auth0Client.isAuthenticated() &&
+         <li class="item">
+         <Link to="/startProject" className={location.pathname === "/startProject" ? "activate" : "notactivate"}>Add Project </Link></li>
+          }
         
         {
         !auth0Client.isAuthenticated() &&
