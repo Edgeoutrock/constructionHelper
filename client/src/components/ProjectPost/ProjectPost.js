@@ -144,6 +144,8 @@ for(var i = 0; i < Object.keys(change).length; i++){
 const obj = Object.fromEntries(entries);
 soughtBubble.push(obj);
 }
+  
+  var filteredBubble = soughtBubble.filter(x => x.text.length > 3);
 
 
 
@@ -319,7 +321,7 @@ const searchQuery = "https://" + `${title}` + ".craigslist.org/search/sss?query=
         }}
         style={resizeStyle}>
         <div style={{ width: '100%', height: '100%' }}>
-          <ReactWordcloud words={soughtBubble} />
+          <ReactWordcloud words={filteredBubble} />
         </div>
         {/* <button type="button" class="btn btn-danger" onClick = {removeLBubbleLocal}>Clear Bubble</button> */}
       </Resizable>) : (<div> Review for Word Bubble </div>) }
