@@ -36,8 +36,8 @@ function CreateProjectForm() {
       <h1>Create a Project</h1>
       <form className="form-group mt-5 mb-5" onSubmit={handleSubmit}>
         <input className="form-control mb-5" required ref={titleRef} placeholder="Title" />
-        <textarea className="form-control mb-5" required ref={descriptionRef} placeholder="Description" />
         <input className="form-control mb-5" ref={imageURLRef} placeholder="Add image URL" />
+        <textarea className="form-control mb-5" required ref={descriptionRef} placeholder="Description" />
         <button className="btn btn-success mt-3 mb-5" disabled={state.loading} type="submit">
           Save Project
         </button>
