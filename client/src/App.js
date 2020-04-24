@@ -1,5 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//import { createStackNavigator } from 'react-navigation-stack';
+//import auth0Client from '../../Auth';
+
+
+    
+  
+
 import Home from "./pages/Home";
 import AddProject from "./pages/AddProject";
 import Detail from "./pages/Detail";
@@ -15,6 +22,8 @@ import Pricing from "./components/pricing/pricing.js";
 import Callback from './Callback';
 
 function App() {
+
+  //const Stack = createStackNavigator();
   return (
     <Router>
       <div>
@@ -22,6 +31,14 @@ function App() {
           <Nav />
           <DriftApp />
         
+
+      {/* <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Pricing" component={Pricing} />
+      <Stack.Screen name="Services" component={FavoritesList} />
+     {auth0Client.isAuthenticated() && <Stack.Screen name="Display" component={ProjectPost} />} 
+     {auth0Client.isAuthenticated() && <Stack.Screen name="Post Project" component={AddProject} />} 
+    </Stack.Navigator> */}
           <Switch>
 
             <Route exact path="/" component={Home} />

@@ -14,9 +14,12 @@ import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-
+import Picks from '../Picks/picks.js';
 function Copyright() {
   return (
+
+
+
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
@@ -134,6 +137,8 @@ export default function Pricing() {
       <CssBaseline />
       <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
+
+          <Picks />
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
             You Nailed It! Construction
           </Typography>

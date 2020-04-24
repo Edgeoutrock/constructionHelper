@@ -44,7 +44,10 @@
     "node-craigslist": "2.1.1",
     "craigslist-searcher": "^1.0.4",
     "react-datepicker": "^2.14.1",
-    "react-tabs": "^3.1.0"
+    "react-tabs": "^3.1.0",
+    "react-navigation-stack": "^2.3.13",
+    "react-native": "^0.62.2",
+    "react-native-iphone-x-helper": "^1.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
