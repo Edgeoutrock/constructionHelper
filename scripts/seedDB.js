@@ -3,7 +3,7 @@ const db = require("../models");
 
 // This file empties the Projects collection and inserts the books below
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/constructionProject");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://heroku_84t6b81s:m0v7q6ek5eqe3tu9knqiaqnf73@ds247648.mlab.com:47648/heroku_84t6b81s");
 
 const projectSeed = [
   {
